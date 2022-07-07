@@ -16,35 +16,36 @@
     </header>
 
     <main class="flex-row justify-space-between">
-        <div class="col-4">
-            <div class="card">
+        <div class="col-3 flex-column">
                 <form id="user-form" class="card-body">
                     <h2 class="form-label" id="search-header">Search for a City:</h2>
                     <input type="text" autofocus="true" class="form-input" />
                     <button type="submit" class="btn">Search</button>
                 </form>
-            </div>
-
-            <div class="card" id="most-popular"></div>
+            <!-- container for pop destinations -->
+            <div class="card flex-column" id="most-popular"></div>
         </div>
 
-        <div class="col-6">
-            <h2 class="current-city"></h2>
-            <p>Temp</p>
-            <p>Wind</p>
-            <p>Humidity</p>
-            <p>UV Index</p>
+        <div class="col-9">
+            <div class="card current-city">
+                <h2 class="city-name"></h2>
+                <p>Temp:</p>
+                <p>Wind:</p>
+                <p>Humidity:</p>
+                <p>UV Index:</p>
             </div>
+
+            <div class="forecast">
+                <h2>5-Day Forecast</h2>
+                <div class="flex-row justify-space-around">
+                    <div class="col-2 card future"></div>
+                    <div class="col-2 card future"></div>
+                    <div class="col-2 card future"></div>
+                    <div class="col-2 card future"></div>
+                    <div class="col-2 card future"></div>
+                </div>
+            </div>
+        </div>
     </main>
-
-
-
-    <div class="current-weather">
-
-    </div>
-
-    <div class="week-forecast">
-
-    </div>
 </body>
 </html>

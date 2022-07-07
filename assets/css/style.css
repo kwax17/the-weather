@@ -44,7 +44,24 @@ header h1 {
     color: white;
     margin-top: 5px;
 }
+.current-city {
+    margin-top: 20px;
+}
 
+.forecast {
+    margin-top: 20px;
+}
+
+.current-city p {
+    margin-left: 5px;
+}
+
+.future {
+    background-color: slategray;
+    padding: 100px 20px;
+}
+
+/* positionings */
 .flex-row {
     display: flex;
     flex-wrap: wrap;
@@ -60,10 +77,10 @@ header h1 {
     justify-content: space-between;
 }
   
-/* .justify-space-around {
+ .justify-space-around {
     justify-content: space-around;
 }
-  
+/*  
 .justify-flex-start {
     justify-content: flex-start
 }
