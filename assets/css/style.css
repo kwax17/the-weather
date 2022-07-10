@@ -46,6 +46,7 @@ header h1 {
 }
 .current-city {
     margin-top: 20px;
+        margin-left: 5px;
 }
 
 .forecast {
@@ -53,7 +54,7 @@ header h1 {
 }
 
 .current-city p {
-    margin-left: 5px;
+
 }
 
 .future {
