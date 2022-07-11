@@ -34,7 +34,7 @@ var getWeather = function(location) {
     fetch(apiURL).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-                console.log(data);
+                // console.log(data);
                 displayWeather(data, location);
             });
         } else {
@@ -55,7 +55,7 @@ var displayWeather = function(weather, searchTerm) {
     currentWeatherEl.textContent = "";
     // defines header as the term searched for
     cityNameEl.textContent = searchTerm;
-    console.log(weather);
+    // console.log(weather);
     
     // date
     var dateEl = document.createElement("span");
@@ -90,35 +90,34 @@ var getUVIndex = function(latitude, longitude) {
     var newApiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=2ea6c593bf0230a2e5e91e4e3927cc96";
     fetch(newApiURL).then(function(response) {
         response.json().then(function(data){
-            showUVIndex();
-            console.log(data);
+            showUVIndex(data);
+            // console.log(data);
         });
     });
 };
 
 var showUVIndex = function (uvi) {
-    // uv index label 
-    var uvIndexEl = document.createElement("span");
-    uvIndexEl.textContent = "UV Index: ";
-    // uv container
-    var uvIndexContainer = document.createElement("div");
-    uvIndexEl.appendChild(uvIndexContainer);
-    // uv  value
+    // uv  label
     var uvIndex = document.createElement("span")
-    uvIndex.textContent =  uvi;
+    uvIndex.textContent =  "UV Index: " 
+    uvIndex.classList = "flex-row align-center";
 
-    // if else statment for colorful uvi container
-    if (uvi <= 3) {
-        uvIndex.classList = "safe"
-    } else if (uvi > 3 && uvi <= 8) {
-        uvIndex.classList = "borderline"
-    } else if (uvi > 9) {
-        uvIndex.classList = "danger"
-    };
+    // uv value and added to container
+    var uvIndexValue = document.createElement("span");
+    uvIndexValue.textContent = uvi.current.uvi;
+    uvIndexValue.classList = "border-box";
 
-    uvIndexContainer.appendChild(uvIndex);
-    currentWeatherEl.appendChild(uvIndexEl);
+    // // if else statment for colorful uvi container
+    // if (uvIndexValue === 0 && uvIndexValue <= 3) {
+    //     this.classList = "safe"
+    // } else if (uvIndexValue > 3 && uvIndexValue <= 8) {
+    //     this.classList = "borderline"
+    // } else if (uvIndexValue > 9) {
+    //     this.classList = "danger"
+    // };
 
+    uvIndex.appendChild(uvIndexValue);
+    currentWeatherEl.appendChild(uvIndex);
 };
 
 var getFutureWeather = function(location) {};

@@ -57,12 +57,16 @@ header h1 {
 }
 
 #current-weather span {
-    margin: 5px;
+    margin: 7px;
+}
+
+.border-box {
+    border: 1px solid black;
+    padding: 1px 6px;
 }
 
 .safe {
     background-color: green;
-    color: white;
 }
 
 .borderline {
@@ -96,4 +100,8 @@ header h1 {
   
  .justify-space-around {
     justify-content: space-around;
+}
+
+.align-center {
+    align-items: center ;
 }
