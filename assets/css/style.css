@@ -46,7 +46,6 @@ header h1 {
 }
 .current-city {
     margin-top: 20px;
-        margin-left: 5px;
 }
 
 .forecast {
@@ -54,7 +53,24 @@ header h1 {
 }
 
 .current-city p {
+    margin-left: 5px;
+}
 
+#current-weather span {
+    margin: 5px;
+}
+
+.safe {
+    background-color: green;
+    color: white;
+}
+
+.borderline {
+    background-color: orange;
+}
+
+.danger {
+    background-color: red;
 }
 
 .future {
@@ -81,27 +97,3 @@ header h1 {
  .justify-space-around {
     justify-content: space-around;
 }
-/*  
-.justify-flex-start {
-    justify-content: flex-start
-}
-  
-.justify-flex-end {
-    justify-content: flex-end;
-}
-  
-.justify-center {
-    justify-content: center;
-}
-  
-.align-stretch {
-    align-items: stretch;
-}
-  
-.align-end {
-    align-items: flex-end;
-}
-  
-.align-center {
-    align-items: center;
-} */

@@ -20,7 +20,7 @@
                 <form id="user-form" class="card-body">
                     <h2 class="form-label" id="search-header">Search for a City:</h2>
                     <input type="text" autofocus="true" class="form-input" />
-                    <button type="submit" class="btn search">Search</button>
+                    <button type="submit" class="btn search-here">Search</button>
                 </form>
             <!-- container for pop destinations -->
             <div class="card flex-column" id="most-popular"></div>
@@ -29,7 +29,7 @@
         <div class="col-9">
             <div class="card current-city">
                 <h2 class="city-name"></h2>
-                <div class="current-weather"></div>
+                <div id="current-weather" class="flex-column"></div>
             </div>
 
             <div class="forecast">
@@ -44,6 +44,9 @@
             </div>
         </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
