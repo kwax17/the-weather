@@ -56,6 +56,10 @@ header h1 {
     margin-left: 5px;
 }
 
+.city-name {
+    text-transform: capitalize;
+}
+
 #current-weather span {
     margin: 7px;
 }
@@ -75,6 +79,10 @@ header h1 {
 
 .danger {
     background-color: red;
+}
+
+.none {
+    background-color: bisque;
 }
 
 .future {

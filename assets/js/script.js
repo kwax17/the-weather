@@ -29,7 +29,7 @@ var formSearchWeather = function(event) {
 
 var getWeather = function(location) {
     // open weather api
-    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location+ "&units=imperial&appid=2ea6c593bf0230a2e5e91e4e3927cc96";
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=imperial&appid=2ea6c593bf0230a2e5e91e4e3927cc96";
 
     fetch(apiURL).then(function(response) {
         if (response.ok) {
@@ -98,26 +98,25 @@ var getUVIndex = function(latitude, longitude) {
 
 var showUVIndex = function (uvi) {
     // uv  label
-    var uvIndex = document.createElement("span")
-    uvIndex.textContent =  "UV Index: " 
-    uvIndex.classList = "flex-row align-center";
+    var uvIndexTitle = document.createElement("span")
+    uvIndexTitle.textContent =  "UV Index: " 
+    uvIndexTitle.classList = "flex-row align-center";
 
     // uv value and added to container
-    var uvIndexValue = document.createElement("span");
-    uvIndexValue.textContent = uvi.current.uvi;
-    uvIndexValue.classList = "border-box";
+    var uvIndex = document.createElement("span");
+    uvIndex.textContent = uvi.current.uvi;
 
-    // // if else statment for colorful uvi container
-    // if (uvIndexValue === 0 && uvIndexValue <= 3) {
-    //     this.classList = "safe"
-    // } else if (uvIndexValue > 3 && uvIndexValue <= 8) {
-    //     this.classList = "borderline"
-    // } else if (uvIndexValue > 9) {
-    //     this.classList = "danger"
-    // };
+    // if else statment for colorful uvi container
+    if (uvi.current.uvi <= 3) {
+        uvIndex.classList = "safe border-box"
+    } else if (uvi.current.uvi > 3 && uvi.current.uvi <= 8) {
+        uvIndex.classList = "borderline border-box"
+    } else if (uvi.current.uvi > 8) {
+        uvIndex.classList = "danger border-box"
+    };
 
-    uvIndex.appendChild(uvIndexValue);
-    currentWeatherEl.appendChild(uvIndex);
+    uvIndexTitle.append(uvIndex);
+    currentWeatherEl.appendChild(uvIndexTitle);
 };
 
 var getFutureWeather = function(location) {};
