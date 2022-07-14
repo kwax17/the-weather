@@ -56,6 +56,10 @@ header h1 {
     border: none;
 }
 
+.search-history-btn {
+    margin-bottom: 5px;
+}
+
 #recent-title {
     font-size: 20px;
     text-align: center;

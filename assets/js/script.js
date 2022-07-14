@@ -16,10 +16,9 @@ var futureCardsEl = document.querySelector("#forecast");
 var forecastTitleEl = document.querySelector(".forecast-title");
 // search history
 var searchHistoryEl = document.querySelector("#search-history");
-
+// previously searched city buttons
 var searchHistoryBtn = document.querySelector(".search-history-btn");
-
-var cities = [];
+var cities = ["New York", "London", "San Diego", "Boston", "Los Angeles"];
 
 var formSearchWeather = function(event) {
     // stops page from refreshing 
@@ -33,7 +32,8 @@ var formSearchWeather = function(event) {
     } else {
       alert("Enter a location");
     }
-    saveLocation(location);
+
+    saveSearch(location);
     searchHistory(location);
 };
 
@@ -51,9 +51,9 @@ var getWeather = function(location) {
             alert("Error");
         }
     })
-    .catch(function(error){
-        alert("Not connected");
-    });
+
+    // saveSearch(location);
+    // searchHistory(location);
 };
 
 var displayWeather = function(weather, searchTerm) {
@@ -178,26 +178,51 @@ var displayFutureWeather = function(weather) {
     };
 };
 
-// var saveSearch = function() {
-//     localStorage.setItem("City", JSON.stringify(cities));
-// }
+var exampleButtons = function() {
+    localStorage.setItem("City Names", JSON.stringify(cities));
+    
+    for (i=0; i<cities.length; i++) {
+        var cityNames = JSON.parse(localStorage.getItem("City Names"));
+        var individCity = cityNames[i]
 
-var searches = [];
-var saveLocation = function(location) {
-    localStorage.setItem("City", JSON.stringify(location));
-    searches.push()
+        searchHistory(individCity);
+    };
 }
 
-var searchHistory = function(searched) {
-    var searchHistory = document.createElement("button");
-    searchHistory.textContent = searched;
-    searchHistoryEl.appendChild(searchHistory);
-    searchHistory.classList = "btn city-name search-history-btn";
+var saveSearch = function() {
+    // var newCity = $( "button:contains('SearchingText')" );
+    
+    // // pushes example cities value
+    // cities.push(newCity);
+
+    // sets 
+    // localStorage.setItem("City Names", cities);
+
+    // searchHistory(cityExample);
 };
 
-var retrieveHistory = function (location) {
+var searchHistory = function(searched) {
+    var searchHistoryTxt = document.createElement("button");
+    searchHistoryTxt.textContent = searched;
+    searchHistoryEl.appendChild(searchHistoryTxt);
+    searchHistoryTxt.classList = "btn city-name search-history-btn";
 
+
+};
+
+var formSearchHistory = function() {
+    // get value from input element
+    var btnTxt = document.querySelector(".search-history-btn");
+    var location = btnTxt.value.trim();
+    if (location) {
+      getWeather(location);
+    } 
 };
 
 searchBtn.addEventListener("click", formSearchWeather);
-// searchHistoryBtn.addEventListener("click", retrieveHistory);
+// searchHistoryBtn.addEventListener("click", getHistory);
+$("searchHistoryBtn").click(function(){
+    formSearchHistory();
+});
+
+exampleButtons();
