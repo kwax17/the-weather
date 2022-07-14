@@ -21,9 +21,12 @@
                     <h2 class="form-label" id="search-header">Search for a City:</h2>
                     <input type="text" autofocus="true" class="form-input" />
                     <button type="submit" class="btn search-here">Search</button>
+                    <br>
+                    <div class="card" id="search-history">
+                        <h3 id="recent-title"> Recent Searches</h3>
+                    </div>
                 </form>
             <!-- container for pop destinations -->
-            <div class="card flex-column" id="most-popular"></div>
         </div>
 
         <div class="col-9">
@@ -33,13 +36,8 @@
             </div>
 
             <div class="forecast">
-                <h2>5-Day Forecast</h2>
-                <div class="flex-row justify-space-around">
-                    <div class="col-2 card future"></div>
-                    <div class="col-2 card future"></div>
-                    <div class="col-2 card future"></div>
-                    <div class="col-2 card future"></div>
-                    <div class="col-2 card future"></div>
+                <h2 class="forecast-title"></h2>
+                <div id="forecast" class="flex-row justify-space-between">
                 </div>
             </div>
         </div>

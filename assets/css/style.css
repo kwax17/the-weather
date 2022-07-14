@@ -23,8 +23,14 @@ header h1 {
     font-weight: bold;
 }
 
+.form-label{
+    font-size: 27px;
+    text-align: center;
+}
+
 .form-label,
-.form-input {
+.form-input,
+.search-history {
   display: block;
 }
 
@@ -42,13 +48,21 @@ header h1 {
     padding-top: 5px;
     background-color: skyblue;
     color: white;
-    margin-top: 5px;
-}
-.current-city {
-    margin-top: 20px;
+    /* margin-top: 5px; */
 }
 
-.forecast {
+#search-history {
+    margin-top: 20px;
+    border: none;
+}
+
+#recent-title {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.current-city, .forecast {
     margin-top: 20px;
 }
 
@@ -81,13 +95,19 @@ header h1 {
     background-color: red;
 }
 
-.none {
-    background-color: bisque;
-}
-
 .future {
     background-color: slategray;
-    padding: 100px 20px;
+    padding: 10px 10px 20px 10px;
+}
+
+.future h2 {
+    text-align: start;
+    font-size: 20px;
+}
+
+.future span {
+    font-size: 15px;
+    padding-top: 7px;
 }
 
 /* positionings */
