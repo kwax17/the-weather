@@ -186,8 +186,12 @@ var searchHistory = function(searched) {
     searchHistoryTxt.textContent = searched;
     searchHistoryEl.prepend(searchHistoryTxt);
     searchHistoryTxt.classList = "btn city-name search-history-btn";
-    // searchHistoryTxt.setAttribute("cityBtn", searched);
+    searchHistoryTxt.setAttribute("cityBtn", searched);
     searchHistoryTxt.setAttribute("type", "button");
+
+    searchHistoryTxt.addEventListener("click", function(){
+        formSearchHistory(searched);
+    });
 };
 
 var saveSearch = function(city) {
@@ -198,19 +202,12 @@ var saveSearch = function(city) {
     localStorage.setItem("City Names", JSON.stringify(cities));
 };
 
-var formSearchHistory = function(event) {
-    event.preventDefault();
-    var location = event.target.getAttribute("cityBtn");
-
-    var locationName = location.value.trim();
-    if (locationName) {
-      getWeather(locationName);
+var formSearchHistory = function(searched) {
+    if (searched) {
+      getWeather(searched);
     } 
 };
 
 searchBtn.addEventListener("click", formSearchWeather);
-if (searchHistoryBtn) { 
-    searchHistoryBtn.addEventListener("click", formSearchHistory);
-};
 
 exampleButtons();
