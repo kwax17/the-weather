@@ -51,8 +51,7 @@ header h1 {
     /* margin-top: 5px; */
 }
 
-#search-history {
-    margin-top: 20px;
+.search-history-container {
     border: none;
 }
 
@@ -64,6 +63,7 @@ header h1 {
     font-size: 20px;
     text-align: center;
     text-decoration: underline;
+    margin-top: 10px;
 }
 
 .current-city, .forecast {

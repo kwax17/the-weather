@@ -29,12 +29,11 @@ var formSearchWeather = function(event) {
     if (location) {
       getWeather(location);
       formInputEl.value = "";
+      saveSearch(location);
+      searchHistory(location);
     } else {
       alert("Enter a location");
     }
-
-    saveSearch(location);
-    searchHistory(location);
 };
 
 var getWeather = function(location) {
@@ -42,18 +41,11 @@ var getWeather = function(location) {
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=imperial&appid=2ea6c593bf0230a2e5e91e4e3927cc96";
 
     fetch(apiURL).then(function(response) {
-        if (response.ok) {
-            response.json().then(function(data){
-                // console.log(data);
-                displayWeather(data, location);
-            });
-        } else {
-            alert("Error");
-        }
+        response.json().then(function(data){
+            // console.log(data);
+            displayWeather(data, location);
+        });
     })
-
-    // saveSearch(location);
-    // searchHistory(location);
 };
 
 var displayWeather = function(weather, searchTerm) {
@@ -189,40 +181,36 @@ var exampleButtons = function() {
     };
 }
 
-var saveSearch = function() {
-    // var newCity = $( "button:contains('SearchingText')" );
-    
-    // // pushes example cities value
-    // cities.push(newCity);
-
-    // sets 
-    // localStorage.setItem("City Names", cities);
-
-    // searchHistory(cityExample);
-};
-
 var searchHistory = function(searched) {
-    var searchHistoryTxt = document.createElement("button");
+    searchHistoryTxt = document.createElement("button");
     searchHistoryTxt.textContent = searched;
-    searchHistoryEl.appendChild(searchHistoryTxt);
+    searchHistoryEl.prepend(searchHistoryTxt);
     searchHistoryTxt.classList = "btn city-name search-history-btn";
-
-
+    // searchHistoryTxt.setAttribute("cityBtn", searched);
+    searchHistoryTxt.setAttribute("type", "button");
 };
 
-var formSearchHistory = function() {
-    // get value from input element
-    var btnTxt = document.querySelector(".search-history-btn");
-    var location = btnTxt.value.trim();
-    if (location) {
-      getWeather(location);
+var saveSearch = function(city) {
+    var newCity = city;
+    
+    // pushes example cities value
+    cities.push(newCity);
+    localStorage.setItem("City Names", JSON.stringify(cities));
+};
+
+var formSearchHistory = function(event) {
+    event.preventDefault();
+    var location = event.target.getAttribute("cityBtn");
+
+    var locationName = location.value.trim();
+    if (locationName) {
+      getWeather(locationName);
     } 
 };
 
 searchBtn.addEventListener("click", formSearchWeather);
-// searchHistoryBtn.addEventListener("click", getHistory);
-$("searchHistoryBtn").click(function(){
-    formSearchHistory();
-});
+if (searchHistoryBtn) { 
+    searchHistoryBtn.addEventListener("click", formSearchHistory);
+};
 
 exampleButtons();
